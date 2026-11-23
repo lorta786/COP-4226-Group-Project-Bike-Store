@@ -1,6 +1,6 @@
 ﻿namespace BikeStore
 {
-    partial class ForgotUserName
+    partial class frmForgotUserName
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace BikeStore
 {
-    partial class ForgotPassword
+    partial class frmForgotPasasword
     {
         /// <summary>
         /// Required designer variable.
@@ -64,6 +64,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(282, 31);
             txtPassword.TabIndex = 14;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // lblEnterPassword
             // 

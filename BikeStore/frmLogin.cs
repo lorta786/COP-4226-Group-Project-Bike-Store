@@ -9,14 +9,14 @@ namespace BikeStore
 
         private void btnForgotUser_Click(object sender, EventArgs e)
         {
-            ForgotUserName forgotUserName = new ForgotUserName();
-            forgotUserName.Show();
+            frmForgotUserName forgotUserName = new frmForgotUserName();
+            forgotUserName.ShowDialog();
         }
 
         private void btnForgotPassword_Click(object sender, EventArgs e)
         {
-            ForgotPassword forgotPassword = new ForgotPassword();
-            forgotPassword.Show();
+            frmForgotPasasword forgotPassword = new frmForgotPasasword();
+            forgotPassword.ShowDialog();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -27,13 +27,20 @@ namespace BikeStore
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
             CreateAccount createAccount = new CreateAccount();
-            createAccount.Show();
+            createAccount.ShowDialog();
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            BikeStore bikeStore = new BikeStore();
-            bikeStore.Show();
+            Hide();
+            using frmBikeStore mainForm = new();
+            mainForm.ShowDialog();
+            Close();
+        }
+
+        private void LogIn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

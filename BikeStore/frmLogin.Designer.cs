@@ -92,6 +92,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(325, 31);
             txtPassword.TabIndex = 5;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // btnForgotPassword
             // 
@@ -154,6 +155,7 @@
             Name = "LogIn";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Log In";
+            Load += LogIn_Load;
             ResumeLayout(false);
             PerformLayout();
         }

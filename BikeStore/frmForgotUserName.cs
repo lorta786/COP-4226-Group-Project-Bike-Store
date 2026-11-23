@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace BikeStore
 {
-    public partial class CreateAccount : Form
+    public partial class frmForgotUserName : Form
     {
-        public CreateAccount()
+        public frmForgotUserName()
         {
             InitializeComponent();
         }
@@ -21,11 +21,6 @@ namespace BikeStore
         }
 
         private void btnEnter_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtFirstName_TextChanged(object sender, EventArgs e)
         {
 
         }

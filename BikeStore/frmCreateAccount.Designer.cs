@@ -66,7 +66,6 @@
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(282, 31);
             txtFirstName.TabIndex = 2;
-            txtFirstName.TextChanged += txtFirstName_TextChanged;
             // 
             // lblEnterLastName
             // 
@@ -118,6 +117,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(282, 31);
             txtPassword.TabIndex = 8;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // btnExit
             // 

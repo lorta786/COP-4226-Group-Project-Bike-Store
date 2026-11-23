@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace BikeStore
 {
-    public partial class ForgotPassword : Form
+    public partial class frmForgotPasasword : Form
     {
-        public ForgotPassword()
+        public frmForgotPasasword()
         {
             InitializeComponent();
         }
@@ -24,5 +24,6 @@ namespace BikeStore
         {
             Close();
         }
+
     }
 }

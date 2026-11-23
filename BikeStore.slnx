@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/Solution Items/">
-    <File Path="../../BikeStore.mdf" />
+    <File Path="BikeStore.mdf" />
   </Folder>
   <Project Path="BikeStore/BikeStore.csproj" />
 </Solution>
