@@ -1,6 +1,6 @@
 ﻿namespace BikeStore
 {
-    partial class CreateAccount
+    partial class frmCreateAccount
     {
         /// <summary>
         /// Required designer variable.

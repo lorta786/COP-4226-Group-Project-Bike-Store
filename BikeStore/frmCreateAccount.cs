@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace BikeStore
 {
-    public partial class CreateAccount : Form
+    public partial class frmCreateAccount : Form
     {
-        public CreateAccount()
+        public frmCreateAccount()
         {
             InitializeComponent();
         }

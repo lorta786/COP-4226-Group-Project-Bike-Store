@@ -1,8 +1,10 @@
+using Microsoft.Data.SqlClient;
+
 namespace BikeStore
 {
-    public partial class LogIn : Form
+    public partial class frmLogin : Form
     {
-        public LogIn()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -15,7 +17,7 @@ namespace BikeStore
 
         private void btnForgotPassword_Click(object sender, EventArgs e)
         {
-            frmForgotPasasword forgotPassword = new frmForgotPasasword();
+            frmForgotPassword forgotPassword = new frmForgotPassword();
             forgotPassword.ShowDialog();
         }
 
@@ -26,7 +28,7 @@ namespace BikeStore
 
         private void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            CreateAccount createAccount = new CreateAccount();
+            frmCreateAccount createAccount = new frmCreateAccount();
             createAccount.ShowDialog();
         }
 
@@ -40,7 +42,19 @@ namespace BikeStore
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-
+            // TEMPORARY connection test
+            try
+            {
+                using SqlConnection connection = BaseDA.GetConnection();
+                connection.Open();
+                using SqlCommand command = new("SELECT COUNT(*) FROM SalesLT.Customer", connection);
+                int count = (int)command.ExecuteScalar();
+                MessageBox.Show($"Connected! {count} customers found.", "Connection Test");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Connection Failed");
+            }
         }
     }
 }
