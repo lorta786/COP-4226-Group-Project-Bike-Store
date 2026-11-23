@@ -43,8 +43,9 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(960, 540);
+            panel1.Size = new Size(960, 756);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // menuStrip1
             // 
@@ -78,7 +79,7 @@
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(960, 540);
+            ClientSize = new Size(960, 756);
             Controls.Add(panel1);
             MainMenuStrip = menuStrip1;
             Name = "frmSalesReportScreen";

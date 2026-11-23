@@ -72,14 +72,14 @@
             pnlContainer.Dock = DockStyle.Fill;
             pnlContainer.Location = new Point(0, 0);
             pnlContainer.Name = "pnlContainer";
-            pnlContainer.Size = new Size(960, 540);
+            pnlContainer.Size = new Size(960, 756);
             pnlContainer.TabIndex = 1;
             // 
             // frmBikeStore
             // 
             AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(960, 540);
+            ClientSize = new Size(960, 756);
             Controls.Add(menuStrip1);
             Controls.Add(pnlContainer);
             MainMenuStrip = menuStrip1;
