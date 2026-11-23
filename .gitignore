@@ -264,6 +264,7 @@ ServiceFabricBackup/
 # SQL Server files
 *.mdf
 *.ldf
+!BikeStore/BikeStore.mdf
 *.ndf
 
 # Business Intelligence projects
