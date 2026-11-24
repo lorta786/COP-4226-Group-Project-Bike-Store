@@ -279,6 +279,16 @@ namespace BikeStore
 
             int selectedIndex = itemlist.CurrentRow?.Index ?? -1;
             _cartItems[selectedIndex].Quantity = newQuantity;
+            
+_cartItems.ResetBindings();
+
+decimal subtotal = _cartItems.Sum(item => item.ListPrice);
+decimal tax = subtotal * 0.07m;
+decimal total = subtotal + tax;
+
+sbtotalTextBox.Text = subtotal.ToString("C");
+taxTextBox.Text = tax.ToString("C");
+totalTextBox.Text = total.ToString("C");
 
             itemlist.ClearSelection();
             itemlist.Rows[selectedIndex].Selected = true;
