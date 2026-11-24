@@ -32,7 +32,7 @@
             totalTextBox = new TextBox();
             taxTextBox = new TextBox();
             sbtotalTextBox = new TextBox();
-            newodrButton = new Button();
+            newordButton = new Button();
             exitButton = new Button();
             totalLabel = new Label();
             taxLabel = new Label();
@@ -80,7 +80,7 @@
             pnlOrderScreen.Controls.Add(totalTextBox);
             pnlOrderScreen.Controls.Add(taxTextBox);
             pnlOrderScreen.Controls.Add(sbtotalTextBox);
-            pnlOrderScreen.Controls.Add(newodrButton);
+            pnlOrderScreen.Controls.Add(newordButton);
             pnlOrderScreen.Controls.Add(exitButton);
             pnlOrderScreen.Controls.Add(totalLabel);
             pnlOrderScreen.Controls.Add(taxLabel);
@@ -160,15 +160,16 @@
             sbtotalTextBox.Size = new Size(231, 38);
             sbtotalTextBox.TabIndex = 37;
             // 
-            // newodrButton
+            // newordButton
             // 
-            newodrButton.Font = new Font("Segoe UI", 9.857143F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            newodrButton.Location = new Point(612, 684);
-            newodrButton.Name = "newodrButton";
-            newodrButton.Size = new Size(165, 40);
-            newodrButton.TabIndex = 36;
-            newodrButton.Text = "New Order";
-            newodrButton.UseVisualStyleBackColor = true;
+            newordButton.Font = new Font("Segoe UI", 9.857143F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            newordButton.Location = new Point(612, 684);
+            newordButton.Name = "newordButton";
+            newordButton.Size = new Size(165, 40);
+            newordButton.TabIndex = 36;
+            newordButton.Text = "New Order";
+            newordButton.UseVisualStyleBackColor = true;
+            newordButton.Click += newordButton_Click;
             // 
             // exitButton
             // 
@@ -603,7 +604,7 @@
         private Button removeitmButton;
         private Button updtqtyButton;
         private Label sbtotalLabel;
-        private Button newodrButton;
+        private Button newordButton;
         private Button exitButton;
         private TextBox taxTextBox;
         private TextBox sbtotalTextBox;

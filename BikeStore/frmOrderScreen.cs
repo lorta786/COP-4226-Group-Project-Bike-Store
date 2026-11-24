@@ -318,6 +318,11 @@ namespace BikeStore
         {
             this.Close();
         }
+
+        private void newordButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public sealed class CartItem
     {
