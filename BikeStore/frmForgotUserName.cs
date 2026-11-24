@@ -20,9 +20,18 @@ namespace BikeStore
             Close();
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
-        {
+       
+private void btnEnter_Click(object sender, EventArgs e)
+{
+    if (!InputValidation.IsRequired(txtUserName, "Username"))
+    {
+        return;
+    }
 
-        }
+    MessageBox.Show(
+        "Username input passed validation.",
+        "Validation Complete");
+}
+
     }
 }
