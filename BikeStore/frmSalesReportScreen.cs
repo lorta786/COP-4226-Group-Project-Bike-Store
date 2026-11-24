@@ -27,6 +27,11 @@ namespace BikeStore
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(fileTextBox.Text))
+            {
+                MessageBox.Show("Please select a file path to save the sales report.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             MessageBox.Show("Sales Report from " + dateTimePicker1.Value + " to " + dateTimePicker2.Value + " successfully generated at " + fileTextBox.Text + ".", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
