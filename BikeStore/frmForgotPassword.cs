@@ -15,10 +15,32 @@ namespace BikeStore
             InitializeComponent();
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
-        {
+        
+private void btnEnter_Click(object sender, EventArgs e)
+{
+    // Check that the username is entered.
+    if (!InputValidation.IsRequired(txtUserName, "Username"))
+    {
+        return;
+    }
 
-        }
+    // Check that a new password is entered.
+    if (!InputValidation.IsRequired(txtPassword, "New password"))
+    {
+        return;
+    }
+
+    // Check the minimum password length.
+    if (!InputValidation.HasMinLength(txtPassword, "New password", 8))
+    {
+        return;
+    }
+
+    MessageBox.Show(
+        "Password reset fields passed validation.",
+        "Validation Complete");
+}
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {
