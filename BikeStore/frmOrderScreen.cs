@@ -312,17 +312,29 @@ totalTextBox.Text = total.ToString("C");
             itemlist.ClearSelection();
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to clear the cart?", "Clear Cart Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                _cartItems.Clear();
-                sbtotalTextBox.Text = "$0.00";
-                taxTextBox.Text = "$0.00";
-                totalTextBox.Text = "$0.00";
-            }
+        
+private void clearButton_Click(object sender, EventArgs e)
+{
+    if (MessageBox.Show(
+        "Are you sure you want to clear the cart?",
+        "Clear Cart Confirmation",
+        MessageBoxButtons.YesNo,
+        MessageBoxIcon.Question) == DialogResult.Yes)
+    {
+        _cartItems.Clear();
 
-        }
+        sbtotalTextBox.Text = "$0.00";
+        taxTextBox.Text = "$0.00";
+        totalTextBox.Text = "$0.00";
+
+        itemlist.ClearSelection();
+        qtyTextBox.Clear();
+        priceTextBox.Clear();
+        productTextBox.Clear();
+        resultComboBox2.SelectedIndex = -1;
+    }
+}
+
 
         private void exitButton_Click(object sender, EventArgs e)
         {
