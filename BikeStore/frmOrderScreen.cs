@@ -316,12 +316,34 @@ namespace BikeStore
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void newordButton_Click(object sender, EventArgs e)
         {
+            if (_cartItems.Count == 0 || string.IsNullOrWhiteSpace(frstnameTextBox.Text) || string.IsNullOrWhiteSpace(lstnameTextBox2.Text))
+            {
+                MessageBox.Show("The cart is empty or customer information is missing. Please add items to the cart and fill in all customer details before proceeding to checkout.", "Empty Cart or Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            if (!int.TryParse(cidTextBox.Text.Trim(), out int customerID))
+            {
+                MessageBox.Show("Invalid Customer ID. Please ensure the customer information is correct.", "Customer ID Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string customerName = $"{frstnameTextBox.Text} {lstnameTextBox2.Text}".Trim();
+            string companyName = companyTextBox.Text.Trim();
+
+            decimal subtotal = _cartItems.Sum(item => item.ListPrice);
+            decimal tax = subtotal * 0.07m;
+            decimal total = subtotal + tax;
+
+            frmReceipt receiptForm = new(_cartItems, customerName, customerID, companyName, subtotal, tax, total);
+
+            receiptForm.ShowDialog();
+            this.Close();
         }
     }
     public sealed class CartItem
