@@ -30,13 +30,25 @@ namespace BikeStore
             createAccount.ShowDialog();
         }
 
-        private void btnLogIn_Click(object sender, EventArgs e)
-        {
-            Hide();
-            using frmBikeStore mainForm = new();
-            mainForm.ShowDialog();
-            Close();
-        }
+       
+private void btnLogIn_Click(object sender, EventArgs e)
+{
+    if (!InputValidation.IsRequired(txtUserName, "Username"))
+    {
+        return;
+    }
+
+    if (!InputValidation.IsRequired(txtPassword, "Password"))
+    {
+        return;
+    }
+
+    Hide();
+    using frmBikeStore mainForm = new();
+    mainForm.ShowDialog();
+    Close();
+}
+
 
         private void LogIn_Load(object sender, EventArgs e)
         {
