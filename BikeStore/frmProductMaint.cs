@@ -28,14 +28,14 @@ namespace BikeStore
         private bool IsValidData()
         {
             // Required fields, and prices must be numbers of 0 or more.
-            if (!(InputValidation.IsPresent(txtName, "Name") &&
-                  InputValidation.IsPresent(txtProductNumber, "Product #") &&
-                  InputValidation.IsPresent(txtStandardCost, "Standard cost") &&
-                  InputValidation.IsDecimal(txtStandardCost, "Standard cost") &&
-                  InputValidation.IsWithinRange(txtStandardCost, "Standard cost", 0m, 1000000m) &&
-                  InputValidation.IsPresent(txtListPrice, "List price") &&
-                  InputValidation.IsDecimal(txtListPrice, "List price") &&
-                  InputValidation.IsWithinRange(txtListPrice, "List price", 0m, 1000000m)))
+            if (!(Validator.IsPresent(txtName, "Name") &&
+                  Validator.IsPresent(txtProductNumber, "Product #") &&
+                  Validator.IsPresent(txtStandardCost, "Standard cost") &&
+                  Validator.IsDecimal(txtStandardCost, "Standard cost") &&
+                  Validator.IsWithinRange(txtStandardCost, "Standard cost", 0m, 1000000m) &&
+                  Validator.IsPresent(txtListPrice, "List price") &&
+                  Validator.IsDecimal(txtListPrice, "List price") &&
+                  Validator.IsWithinRange(txtListPrice, "List price", 0m, 1000000m)))
             {
                 return false;
             }
@@ -43,8 +43,8 @@ namespace BikeStore
             // Weight is optional, but must be a valid number if entered (decimal 8,2).
             if (txtWeight.Text.Trim() != "")
             {
-                if (!(InputValidation.IsDecimal(txtWeight, "Weight") &&
-                      InputValidation.IsWithinRange(txtWeight, "Weight", 0m, 999999.99m)))
+                if (!(Validator.IsDecimal(txtWeight, "Weight") &&
+                      Validator.IsWithinRange(txtWeight, "Weight", 0m, 999999.99m)))
                 {
                     return false;
                 }
@@ -52,13 +52,13 @@ namespace BikeStore
 
             // Sell end and discontinued dates are optional, but can't be before sell start.
             if (dtpSellEnd.Checked &&
-                !InputValidation.IsDateOnOrAfter(dtpSellEnd, dtpSellStart, "Sell end date", "the sell start date"))
+                !Validator.IsDateOnOrAfter(dtpSellEnd, dtpSellStart, "Sell end date", "the sell start date"))
             {
                 return false;
             }
 
             if (dtpDiscontinued.Checked &&
-                !InputValidation.IsDateOnOrAfter(dtpDiscontinued, dtpSellStart, "Discontinued date", "the sell start date"))
+                !Validator.IsDateOnOrAfter(dtpDiscontinued, dtpSellStart, "Discontinued date", "the sell start date"))
             {
                 return false;
             }
@@ -68,7 +68,7 @@ namespace BikeStore
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (InputValidation.IsPresent(txtSearch, "Search text"))
+            if (Validator.IsPresent(txtSearch, "Search text"))
             {
                 // Phase 3: ProductDA.SearchByName(txtSearch.Text) fills cboResults.
                 MessageBox.Show("Search will look up products by partial name in Phase 3.", "Search");
@@ -77,7 +77,7 @@ namespace BikeStore
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            InputValidation.ClearScreen(this);
+            Validator.ClearScreen(this);
             txtName.Focus();
         }
 
@@ -106,13 +106,13 @@ namespace BikeStore
             if (answer == DialogResult.Yes)
             {
                 // Phase 3: ProductDA.Delete(productID). Blocked if the product has been sold.
-                InputValidation.ClearScreen(this);
+                Validator.ClearScreen(this);
             }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            InputValidation.ClearScreen(this);
+            Validator.ClearScreen(this);
             txtName.Focus();
         }
 

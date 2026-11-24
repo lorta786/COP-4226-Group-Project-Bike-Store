@@ -20,7 +20,8 @@ namespace BikeStore
             Close();
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        
+private void btnEnter_Click(object sender, EventArgs e)
 {
     if (!InputValidation.IsRequired(txtFirstName, "First name"))
         return;
@@ -39,5 +40,6 @@ namespace BikeStore
 
     MessageBox.Show("All input fields passed validation.");
 }
+
     }
 }

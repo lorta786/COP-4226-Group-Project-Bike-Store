@@ -18,15 +18,15 @@ namespace BikeStore
         // Checks every field before saving.
         private bool IsValidData()
         {
-            return InputValidation.IsPresent(txtFirstName, "First name") &&
-                   InputValidation.IsPresent(txtLastName, "Last name") &&
-                   InputValidation.IsValidEmail(txtEmail, "Email") &&
-                   InputValidation.IsMaskComplete(mtbPhone, "Phone");
+            return Validator.IsPresent(txtFirstName, "First name") &&
+                   Validator.IsPresent(txtLastName, "Last name") &&
+                   Validator.IsValidEmail(txtEmail, "Email") &&
+                   Validator.IsMaskComplete(mtbPhone, "Phone");
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (InputValidation.IsPresent(txtSearch, "Search text"))
+            if (Validator.IsPresent(txtSearch, "Search text"))
             {
                 // Phase 3: CustomerDA.Search(txtSearch.Text) fills cboResults.
                 MessageBox.Show("Search will look up customers in the database in Phase 3.", "Search");
@@ -35,7 +35,7 @@ namespace BikeStore
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            InputValidation.ClearScreen(this);
+            Validator.ClearScreen(this);
             txtFirstName.Focus();
         }
 
@@ -64,13 +64,13 @@ namespace BikeStore
             if (answer == DialogResult.Yes)
             {
                 // Phase 3: CustomerDA.Delete(customerID). Blocked if the customer has orders.
-                InputValidation.ClearScreen(this);
+                Validator.ClearScreen(this);
             }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            InputValidation.ClearScreen(this);
+            Validator.ClearScreen(this);
             txtFirstName.Focus();
         }
 
