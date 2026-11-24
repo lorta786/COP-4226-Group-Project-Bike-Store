@@ -1,5 +1,3 @@
-using Microsoft.Data.SqlClient;
-
 namespace BikeStore
 {
     public partial class frmLogin : Form
@@ -42,19 +40,7 @@ namespace BikeStore
 
         private void LogIn_Load(object sender, EventArgs e)
         {
-            // TEMPORARY connection test
-            try
-            {
-                using SqlConnection connection = BaseDA.GetConnection();
-                connection.Open();
-                using SqlCommand command = new("SELECT COUNT(*) FROM SalesLT.Customer", connection);
-                int count = (int)command.ExecuteScalar();
-                MessageBox.Show($"Connected! {count} customers found.", "Connection Test");
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.Message, "Connection Failed");
-            }
+
         }
     }
 }
