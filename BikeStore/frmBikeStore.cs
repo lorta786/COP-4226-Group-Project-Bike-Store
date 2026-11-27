@@ -10,10 +10,7 @@ namespace BikeStore
 {
     public partial class frmBikeStore : Form
     {
-        public frmBikeStore()
-        {
-            InitializeComponent();
-        }
+        
 
 public frmBikeStore()
 {
@@ -58,15 +55,16 @@ private void ClearCurrentForm()
             form.Show();
         }
 
-        private void orderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ClearCurrentForm();
+        
+private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+{
+    OpenFormHelper(new frmOrderScreen());
+}
 
-        }
 
         private void mainMenuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFormHelper(new frmBikeStore());
+            ClearCurrentForm();
         }
 
         private void salesReportToolStripMenuItem_Click(object sender, EventArgs e)
