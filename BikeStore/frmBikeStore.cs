@@ -15,6 +15,34 @@ namespace BikeStore
             InitializeComponent();
         }
 
+public frmBikeStore()
+{
+    InitializeComponent();
+
+    menuStrip1.Items.Add(
+        "Customers", null,
+        (sender, e) => OpenFormHelper(new frmCustomerMaint()));
+
+    menuStrip1.Items.Add(
+        "Products", null,
+        (sender, e) => OpenFormHelper(new frmProductMaint()));
+
+    menuStrip1.Items.Add(
+        "Error Log", null,
+        (sender, e) => OpenFormHelper(new frmErrorLog()));
+
+    menuStrip1.BringToFront();
+}
+
+private void ClearCurrentForm()
+{
+    while (pnlContainer.Controls.Count > 0)
+    {
+        Control current = pnlContainer.Controls[0];
+        pnlContainer.Controls.RemoveAt(0);
+        current.Dispose();
+    }
+}
         private void OpenFormHelper(Form form)
         {
             if (pnlContainer.Controls.Count > 0 && pnlContainer.Controls[0].GetType() == form.GetType())
