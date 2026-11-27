@@ -21,37 +21,19 @@ namespace BikeStore
             receiptItemList.DataSource = _receiptItems;
             customerTextBox.Text = customerName;
             companyTextBox.Text = companyName;
-            ordernumTextBox.Text = customerID.ToString();
+            ordernumTextBox.Text = "Not saved";
             sbtotalTextBox.Text = subtotal.ToString("C");
             taxTextBox.Text = tax.ToString("C");
             totalTextBox.Text = total.ToString("C");
 
             InitializeReceiptGrid();
 
-            try
-            {
-                using (var connection = BaseDA.GetConnection())
-                {
-                    connection.Open();
-                    var command = connection.CreateCommand();
-                    command.CommandText = "SELECT * FROM SalesLT.SalesOrderHeader WHERE CustomerID = @CustomerID";
-                    command.Parameters.AddWithValue("@CustomerID", customerID);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            ordernumTextBox.Text = reader["SalesOrderID"].ToString();
-                            ordateTextBox.Text = Convert.ToDateTime(reader["OrderDate"]).ToString("MM/dd/yyyy");
-                            shipdateTextBox.Text = Convert.ToDateTime(reader["ShipDate"]).ToString("MM/dd/yyyy");
-                            shipmethodTextBox.Text = reader["ShipMethod"].ToString();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error retrieving order details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+           
+ordateTextBox.Text = DateTime.Today.ToString("MM/dd/yyyy");
+shipdateTextBox.Clear();
+shipmethodTextBox.Clear();
+
+            
         }
 
         private void InitializeReceiptGrid()
