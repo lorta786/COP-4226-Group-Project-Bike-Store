@@ -50,7 +50,7 @@ private void ClearCurrentForm()
                 form.Dispose();
                 return;
             }
-            pnlContainer.Controls.Clear();
+            ClearCurrentForm();
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
@@ -60,7 +60,7 @@ private void ClearCurrentForm()
 
         private void orderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OpenFormHelper(new frmOrderScreen());
+            ClearCurrentForm();
 
         }
 
